@@ -1,3 +1,7 @@
 <Solution>
+<<<<<<< HEAD
   <Project Path="Cortex.csproj" />
+=======
+  <Project Path="Cortex.csproj" Id="2ca4b5fe-da64-4c23-a226-a025811e8d20" />
+>>>>>>> 597d9bf5a677e6be9b3ceacb835441e28c4b8cc7
 </Solution>

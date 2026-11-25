@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\sameh\\OneDrive\\Documents\\GitHub\\Cortex-File_Manager\\Cortex\\",
+=======
+  "WorkspaceRootPath": "C:\\Users\\sameh\\source\\repos\\Cortex-File_Manager\\Cortex\\",
+>>>>>>> 597d9bf5a677e6be9b3ceacb835441e28c4b8cc7
   "Documents": [],
   "DocumentGroupContainers": [
     {
