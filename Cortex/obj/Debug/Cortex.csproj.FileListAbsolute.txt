@@ -1,0 +1,10 @@
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\bin\Debug\Cortex.exe.config
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\bin\Debug\Cortex.exe
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\bin\Debug\Cortex.pdb
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.csproj.AssemblyReference.cache
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.Form1.resources
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.Properties.Resources.resources
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.csproj.GenerateResource.cache
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.csproj.CoreCompileInputs.cache
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.exe
+C:\Users\sameh\OneDrive\Documents\GitHub\Cortex-File_Manager\Cortex\obj\Debug\Cortex.pdb
