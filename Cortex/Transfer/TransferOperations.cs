@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -96,8 +97,27 @@ namespace Cortex.Transfere
                             error = "skipped";
                             return false;
                         case DuplicateAction.Overwrite:
-                            File.Delete(dest);
-                            break;
+                            string tempPath = Path.GetFullPath(dest) + ".tmp";
+                            try
+                            {
+                                File.Move(source, tempPath);
+                                File.Delete(dest);
+                                File.Move(tempPath, dest);
+                                return true;
+                            }
+                            catch (IOException ex)
+                            {
+                                error = ex.Message;
+                                return false;
+                            }
+                            catch (UnauthorizedAccessException ex)
+                            {
+                                error = ex.Message;
+                                return false;
+
+                            }
+                            
+
                         case DuplicateAction.Rename:
                             dest = GetUniqueFileName(dest);
                             break;
@@ -117,5 +137,49 @@ namespace Cortex.Transfere
                 return false;
             }
         }
+        public static bool CopyFolder(string sourceDir, string destDir, DuplicateAction action, out string error)
+        {
+            error = "";
+            if (string.IsNullOrEmpty(sourceDir) || !Directory.Exists(sourceDir))
+            {
+                error = "Source directory does not exist.";
+                return false;
+            }
+
+            string src = Path.GetFullPath(sourceDir).TrimEnd('\\');
+            string dst = Path.GetFullPath(destDir).TrimEnd('\\');
+            if (dst.Equals(src, StringComparison.OrdinalIgnoreCase) ||
+                dst.StartsWith(src + "\\", StringComparison.OrdinalIgnoreCase))
+            {
+                error = "Cannot copy a folder into itself.";
+                return false;
+            }
+
+            var errors = new List<string>();
+            try
+            {
+                Directory.CreateDirectory(destDir);
+
+                foreach (string file in Directory.GetFiles(sourceDir))
+                {
+                    string destFile = Path.Combine(destDir, Path.GetFileName(file));
+                    if (!CopyFile(file, destFile, action, out string fileError) && fileError != "skipped")
+                        errors.Add(fileError);
+                }
+
+                foreach (string dir in Directory.GetDirectories(sourceDir))
+                {
+                    string destSub = Path.Combine(destDir, Path.GetFileName(dir));
+                    if (!CopyFolder(dir, destSub, action, out string subError) && !string.IsNullOrEmpty(subError))
+                        errors.Add(subError);
+                }
+            }
+            catch (IOException ex) { errors.Add(ex.Message); }
+            catch (UnauthorizedAccessException ex) { errors.Add(ex.Message); }
+
+            error = string.Join("; ", errors);
+            return errors.Count == 0;
+        }
+
     }
 }

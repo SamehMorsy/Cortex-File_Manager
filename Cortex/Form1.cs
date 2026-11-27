@@ -29,7 +29,7 @@ namespace Cortex
       
         private void button2_Click_1(object sender, EventArgs e)
         {
-            TransferOperations.MoveFile(@"C:\test\testt", @"C:\test\out\testt", DuplicateAction.Rename, out string err);
+            TransferOperations.CopyFolder(@"C:\test\testt", @"C:\test\out\testt", DuplicateAction.Rename, out string err);
         }
 
         private void button3_Click(object sender, EventArgs e)

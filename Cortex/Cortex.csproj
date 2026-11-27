@@ -55,7 +55,7 @@
     <Compile Include="Models\TransferAndSearchModels.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transfere\TransferOperations.cs" />
+    <Compile Include="Transfer\TransferOperations.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concurrency\" />
-    <Folder Include="Transfer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
